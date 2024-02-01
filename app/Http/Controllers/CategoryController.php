@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-namespace App\Http\Controllers\Admin; // era "App\Http\Controllers"
+use App\Models\category;
+use Illuminate\Http\Request;
 
-use App\Models\NomeModello;
-use App\Http\Requests\StoreNomeModelloRequest;
-use App\Http\Requests\UpdateNomeModelloRequest;
-use App\Http\Controllers\Controller; // Controller di base da importare
-//...ecc
-
-
-class NomeModelloController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,7 +26,7 @@ class NomeModelloController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreNomeModelloRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -40,7 +34,7 @@ class NomeModelloController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(NomeModello $nomeModello)
+    public function show(category $category)
     {
         //
     }
@@ -48,7 +42,7 @@ class NomeModelloController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(NomeModello $nomeModello)
+    public function edit(category $category)
     {
         //
     }
@@ -56,7 +50,7 @@ class NomeModelloController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateNomeModelloRequest $request, NomeModello $nomeModello)
+    public function update(Request $request, category $category)
     {
         //
     }
@@ -64,7 +58,7 @@ class NomeModelloController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NomeModello $nomeModello)
+    public function destroy(category $category)
     {
         //
     }

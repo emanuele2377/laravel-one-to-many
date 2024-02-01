@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nome_modellos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('posts', function (Blueprint $table) {
+            $table->unsignedBigInteger("category_id")->nullable()->after("id");
+            $table->foreign("category_id")->references("categories")->on("id");
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nome_modellos');
+        //
     }
 };
