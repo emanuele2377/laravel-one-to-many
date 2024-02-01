@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger("category_id")->nullable()->after("id");
-            $table->foreign("category_id")->references("categories")->on("id");
+        Schema::table('posts', function (Blueprint $table) {
+
+
+            $table->foreignId('category_id')->nullable()->after("id")->constrained()->nullOnDelete();
         });
     }
 
@@ -22,6 +23,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign('posts_category_id_foreign'); //elimina il vincolo e rende la colonna un normale intero
+            $table->dropColumn('category_id'); //elimina la colonna
+        });
     }
 };
